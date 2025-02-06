@@ -29,14 +29,14 @@ void BeginGame() {
   Console.Write("\n Press ");
   PrintInYellow("[H] ");
   Console.Write("to open ");
-  PrintInBlue("Help Menu\n");
+  PrintInPurple("Help Menu\n");
 }
 void PrintInYellow(string message) {
   Console.ForegroundColor = ConsoleColor.Yellow;
   Console.Write(message);
   Console.ForegroundColor = ConsoleColor.White;
 }
-void PrintInBlue(string message) {
+void PrintInPurple(string message) {
   Console.ForegroundColor = ConsoleColor.Magenta;
   Console.Write(message);
   Console.ForegroundColor = ConsoleColor.White;
@@ -49,7 +49,7 @@ void PrintInRed(string message) {
 void ReadInventory() {
   int ii = 1;
   Console.Write("\n === ");
-  PrintInBlue("Inventory ");
+  PrintInPurple("Inventory ");
   Console.Write("===\n");
   foreach (var item in inventory) {
     Console.Write(" " + " " + ii.ToString() + ". ");
@@ -79,16 +79,16 @@ void SetActiveItem(string item) {
 void OpenHelpMenu() {
   PrintInYellow("\n [H] ");
   Console.Write("- Open ");
-  PrintInBlue("Help Menu");
+  PrintInPurple("Help Menu");
   PrintInYellow("\n [I] ");
   Console.Write("- Open ");
-  PrintInBlue("Inventory");
+  PrintInPurple("Inventory");
   PrintInYellow("\n [Y] ");
   Console.Write("- Inspect ");
-  PrintInBlue("Active Item");
+  PrintInPurple("Active Item");
   PrintInYellow("\n [U] ");
   Console.Write("- Use ");
-  PrintInBlue("Active Item\n");
+  PrintInPurple("Active Item\n");
 }
 void InspectItem(string item)
 
@@ -177,7 +177,7 @@ void UseItem(string item)
 
     RemoveFromInventory("cell phone");
   } else if (item == "food") {
-    if (h) {
+    if (h && i) {
       Console.Write("\n You ate the ");
       PrintInRed("food ");
       Console.Write("and choked.\n");
