@@ -36,22 +36,22 @@ void BeginGame() {
   PrintInPurple(    "Help Menu\n"              );
 }
 
-void PrintInYellow(string message)             {
+void PrintInYellow(string message)              {
   Console.ForegroundColor = ConsoleColor.Yellow ;
   Console.Write(message)                        ;
   Console.ForegroundColor = ConsoleColor.White  ;
 }
-void PrintInPurple(string message)             {
+void PrintInPurple(string message)              {
   Console.ForegroundColor = ConsoleColor.Magenta;
   Console.Write(message)                        ;
   Console.ForegroundColor = ConsoleColor.White  ;
 }
-void PrintInRed(string message)                {
+void PrintInRed(string message)                 {
   Console.ForegroundColor = ConsoleColor.Red    ;
   Console.Write(message)                        ;
   Console.ForegroundColor = ConsoleColor.White  ;
 }
-void ReadInventory()                           {
+void ReadInventory()                               {
   int ii = 1                                       ;
   Console.Write("\n === "                         );
   PrintInPurple("Inventory "                      );
@@ -66,9 +66,9 @@ void ReadInventory()                           {
   void ReadNumber()                               {
     Console.Write(" Press a number to select an item. \n"          );
     int itemNumber = int.Parse(Console.ReadKey().KeyChar.ToString());
-    if (itemNumber <= inventory.Length)                     {
+    if (itemNumber <= inventory.Length)                             {
       SetActiveItem(inventory[itemNumber - 1].ToString()           );
-    } else {
+    } else                                                          {
       Console.WriteLine(" Invalid item."                           );
       ReadNumber(                                                  );
     }
@@ -95,65 +95,62 @@ void OpenHelpMenu() {
   Console.Write("- Use "       );
   PrintInPurple("Active Item\n");
 }
-void InspectItem(string item)
 
-{
-  if (item == "nothing") {
-    PrintInRed("\n nothing");
-    Console.Write(".\n");
-  } else if (item == "gun") {
-    if (inventory.Contains("ammo")) {
-      Console.Write("\n A ");
-      PrintInRed("gun");
-      Console.Write(".\n");
+void InspectItem(string item){
+  if (item ==             "nothing"                        ){
+    PrintInRed(           "\n nothing"                     );
+    Console.Write(        ".\n"                            );
+  } else if (item ==      "gun"                            ){
+    if (inventory.Contains("ammo")                         ){
+      Console.Write(      "\n A "                          );
+      PrintInRed(         "gun"                            );
+      Console.Write(      ".\n"                            );
     } else {
-      Console.Write("\n An empty ");
-      PrintInRed("gun");
-      Console.Write(", useless without ");
-      PrintInRed("ammo");
-      Console.Write(".\n");
+      Console.Write(      "\n An empty "                   );
+      PrintInRed(         "gun"                            );
+      Console.Write(      ", useless without "             );
+      PrintInRed(         "ammo"                           );
+      Console.Write(      ".\n"                            );
     }
-  } else if (item == "note") {
-    if (i) {
-      Console.Write("\n A ");
-      PrintInRed("note ");
-      Console.Write("that has a hole in it.\n");
-    } else {
-      Console.Write("\n A ");
-      PrintInRed("note ");
-      Console.Write("that reads: " + playerName + ".");
+  } else if (item ==      "note"                           ){
+    if (i){
+      Console.Write(      "\n A "                          );
+      PrintInRed(         "note "                          );
+      Console.Write(      "that has a hole in it.\n"       );
+    } else                                                  {
+      Console.Write(      "\n A "                          );
+      PrintInRed(         "note "                          );
+      Console.Write(      "that reads: " + playerName + ".");
     }
-  } else if (item == "cell phone") {
-    Console.Write("\n A ");
-    PrintInRed("cell phone");
-    Console.Write(", it's broken.\n");
-  } else if (item == "food") {
-    Console.Write("\n Some ");
-    PrintInRed("food");
-    Console.Write(", it looks like dinner.\n");
-  } else if (item == "money") {
-    Console.Write("\n $1 cash.");
+  } else if (item ==      "cell phone"                     ){
+    Console.Write(        "\n A "                          );
+    PrintInRed(           "cell phone"                     );
+    Console.Write(        ", it's broken.\n"               );
+  } else if (item ==      "food"                           ){
+    Console.Write(        "\n Some "                       );
+    PrintInRed(           "food"                           );
+    Console.Write(        ", it looks like dinner.\n"      );
+  } else if (item ==      "money"                          ){
+    Console.Write(        "\n $1 cash."                    );
   }
 }
-void UseItem(string item)
-
-{
-  if (item == "nothing") {
-    Console.Write("\n You did nothing, good job.\n");
-  } else if (item == "gun") {
-    if (inventory.Contains("ammo")) {
-      Console.Write("\n You shot the ");
-      PrintInRed("note");
-      Console.Write(".\n");
-      RemoveFromInventory("ammo");
-      i = true;
-    } else if (h) {
-      Console.Write("\n You sold the ");
-      PrintInRed("gun ");
-      Console.Write("and recieved ");
-      PrintInRed("money");
-      Console.Write(".\n");
-      RemoveFromInventory("gun");
+void UseItem(string item.                                  ){
+  if        (item ==      "nothing"                        ){
+    Console.Write(        "\n You did nothing, good job.\n");
+  } else if (item ==      "gun"                            ){
+    if (inventory.Contains("ammo")                         ){
+      Console.Write(      "\n You shot the "               );
+      PrintInRed(         "note"                           );
+      Console.Write(      ".\n"                            );
+      RemoveFromInventory("ammo"                           );
+      i = true                                              ;
+    } else if (h                                           ){
+      Console.Write(      "\n You sold the "               );
+      PrintInRed(         "gun "                           );
+      Console.Write(      "and recieved "                  );
+      PrintInRed(         "money"                          );
+      Console.Write(      ".\n"                            );
+      RemoveFromInventory("gun"                            );
       AddToInventory(     "money"                          );
     } else                                                  {
       Console.Write(      "\n You have no "                );
